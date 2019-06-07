@@ -31,8 +31,8 @@ export class Bibliocommons {
         var items = $('.cp-search-result-item-content').each(function (i, elem) {
             results.push({
                 title: $(this).find(".title-content").text(),
-                author: $(this).find(".author-link").text(),
-                format: $(this).find(".cp-format-indicator span").text(),
+                author: $(this).find(".author-link").first().text(),
+                format: $(this).find(".cp-format-indicator span").first().text(),
                 callNumber: $(this).find(".cp-call-number").text().trim(),
                 availability: $(this).find(".cp-availability-status").text().trim(),
                 holds: $(this).find(".cp-hold-counts").text().trim(),
