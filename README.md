@@ -1,20 +1,21 @@
 # node-bc
 
 [![npm version](https://badge.fury.io/js/node-bc.svg)](https://badge.fury.io/js/node-bc)
+[![Tests](https://github.com/thedjpetersen/node-bc/workflows/Tests/badge.svg)](https://github.com/thedjpetersen/node-bc/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A modern TypeScript/Node.js wrapper for the BiblioCommons library system API. BiblioCommons is used by many public libraries across North America to manage their catalogs and provide online services.
 
 ## Features
 
-- 🔐 Secure authentication with BiblioCommons accounts
-- 🔍 Search library catalogs
-- 📚 View current holds
-- 📌 Place holds on available items
-- 🍪 Automatic session management with cookies
-- 💪 Full TypeScript support with type definitions
-- ⚡ Modern async/await API
-- 🔄 Updated dependencies (no deprecated packages)
+- Secure authentication with BiblioCommons accounts
+- Search library catalogs
+- View current holds
+- Place holds on available items
+- Automatic session management with cookies
+- Full TypeScript support with type definitions
+- Modern async/await API
+- Updated dependencies (no deprecated packages)
 
 ## Installation
 
@@ -198,7 +199,7 @@ async function main() {
     // Login
     console.log('Logging in...');
     await client.login();
-    console.log('✓ Logged in successfully');
+    console.log('Logged in successfully');
 
     // Search for books
     console.log('\nSearching for "Node.js"...');
@@ -222,7 +223,7 @@ async function main() {
     if (books.length > 0) {
       console.log('\nPlacing hold on first result...');
       const result = await client.placeHold(books[0], 'Central Library');
-      console.log('✓ Hold placed:', result);
+      console.log('Hold placed:', result);
     }
 
   } catch (error) {
@@ -306,9 +307,37 @@ npm install
 # Build the project
 npm run build
 
+# Run tests
+npm test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Run tests with coverage
+npm run test:coverage
+
 # Clean build artifacts
 npm run clean
 ```
+
+## Testing
+
+This project includes comprehensive unit tests using Jest. Tests cover:
+
+- Authentication and login functionality
+- Search operations with various categories
+- Holds retrieval
+- Hold placement with different scenarios
+- Error handling and edge cases
+- Network error scenarios
+
+Run the test suite with:
+
+```bash
+npm test
+```
+
+Tests use `nock` to mock HTTP requests, ensuring tests run quickly and don't require actual BiblioCommons API access.
 
 ## Contributing
 
